@@ -7,18 +7,13 @@
     <div class="flex flex-wrap items-center gap-4">
       <!-- Search Input + Button -->
       <div class="flex flex-grow">
-        @if(request('category'))
+        @if(request('cuisine'))
         <input
-          name="category"
+          name="cuisine"
           type="hidden"
-          value="{{request('category')}}" />
+          value="{{request('cuisine')}}" />
         @endif
-        @if(request('username'))
-        <input
-          name="username"
-          type="hidden"
-          value="{{request('username')}}" />
-        @endif
+      
         <input
           type="text"
           name="search"
@@ -47,7 +42,7 @@
 
     <p class="text-center text-gray-500 justify-center">No blogs found.</p>
     @endforelse
-    {{$blogs->links()}}
+
 
   </div>
 </section>

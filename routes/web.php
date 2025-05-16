@@ -15,8 +15,7 @@ use function PHPUnit\Framework\fileExists;
 Route::get('/', [BlogController::class, 'index']);
 Route::get('/recipes',function () {
     return view('pages.recipes', [
-        'blogs' => Blog::latest()->filter(request(['search','category','username']))->paginate(6)->withQueryString(),
-    
+        'blogs' => Blog::latest()->filter(request(['search','cuisine']))->get()
     ]);
 });
 

@@ -8,30 +8,31 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');  
             $table->string('username')->unique();
-            $table->string('avatar')->nullable()->default('https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png');
             $table->string('email')->unique();
-            $table->boolean('isAdmin')->default(false);
             $table->string('password');
+            $table->string('avatar')->nullable()->default('https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png');
+            $table->boolean('isAdmin')->default(false);
             $table->timestamps();
+          
         });
+
+     
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('users');
+        
     }
 };

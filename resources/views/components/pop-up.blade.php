@@ -18,7 +18,7 @@
 
             <form method="POST" action="/register" class="space-y-4">
                 @csrf
-                                <h3 class="text-blue-600 text-center text-xl font-semibold my-4">Register form</h3>
+                <h3 class="text-blue-600 text-center text-xl font-semibold my-4">Register form</h3>
                 <div>
                     
                     <input id="firstname" name="firstname" type="text" required
@@ -50,8 +50,10 @@
 
                 <div>
                     
-                    <input id="passwordConfirm" name="passwordConfirm" type="password" required placeholder="Confirm password"
+                    <input id="password_confirmation" name="password_confirmation" type="password" required placeholder="Confirm password"
                         class="w-full bg-gray-800 border border-gray-600 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <x-error name="password_confirmation" />
+
                 </div>
 
                 <button type="submit"

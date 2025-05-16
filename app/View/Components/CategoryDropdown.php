@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Category;
+use App\Models\Cuisine;
 use Illuminate\View\Component;
 
 class CategoryDropdown extends Component
@@ -28,8 +29,8 @@ class CategoryDropdown extends Component
 
 
         return view('components.category-dropdown', [
-            'categories'=>Category::all(),
-            'currentCategory'=>Category::firstWhere('slug', request('category'))
+            'cuisines'=>Cuisine::all(),
+            'currentCuisine'=>Cuisine::firstWhere('name', request('cuisine'))
             
         ]);
     }

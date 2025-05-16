@@ -12,8 +12,8 @@ class Comment extends Model
     {
         return $this->belongsTo(Blog::class);
     }
-    public function author()//author_id
+    public function user()//author_id
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 }

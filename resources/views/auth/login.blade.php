@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 py-8">
         <div class="flex justify-center">
             <div class="w-full max-w-md">
                 <h3 class="text-blue-600 text-center text-xl font-semibold my-4">Login form</h3>

@@ -17,16 +17,18 @@ class AuthController extends Controller
     public function store()
     {
         $formData = request()->validate([
-            'name' => ['required', 'max:255', 'min:3'],
-            'email' => ['required', 'email'],
 
+            'firstname' => ['required', 'max:255', 'min:3'],
+            'lastname' => ['required', 'max:255', 'min:3'],
+            'email' => ['required', 'email'],
             'password' => ['required', 'min:8']
         ], [
             'email.required' => 'Please enter your email address.',
-            'password.min' => 'Password should be at least 8 characters with a captial and small letter with special character.'
+            'password.min' => 'Password should be at least 8 characters with a captial and small letter with special character.',
+            'password.confirmed' => 'Password confirmation does not match.',
         ]);
 
-        $formData['username'] = Str::slug($formData['name']);
+        $formData['username'] = Str::slug($formData['firstname']);
         User::create($formData);
         return redirect('/login')->with('success', 'Account is created successfully. Please log in.');
     }

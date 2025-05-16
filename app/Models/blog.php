@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
      
-    protected $with = ['category','author']; //eager loading
+    protected $with = ['cuisine']; //eager loading
 
     public function scopeFilter($query, $filter)//Blog::latest()->filter()
     {
@@ -20,16 +20,12 @@ class Blog extends Model
             });
         });
 
-        $query->when($filter['category']??false, function ($query, $slug) {
-            $query->whereHas('category', function ($query) use ($slug) {
-                $query->where('slug', $slug);
+        $query->when($filter['cuisine']??false, function ($query, $name) {
+            $query->whereHas('cuisine', function ($query) use ($name) {
+                $query->where('name', $name);
             });
         });
-        $query->when($filter['username']??false, function ($query, $username) {
-            $query->whereHas('author', function ($query) use ($username) {
-                $query->where('username', $username);
-            });
-        });
+      
     }
 
 
